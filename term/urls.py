@@ -1,6 +1,5 @@
 from rest_framework import routers
-from .views import CommentViewSet
-from general.views import router
+from general.views import LetterToAdminViewSet
 
 router = routers.DefaultRouter()
-router.register('term-comment', CommentViewSet)
+router.register('term-comment', LetterToAdminViewSet)

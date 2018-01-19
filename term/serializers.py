@@ -1,7 +1,7 @@
 from rest_framework import serializers
-from .models import Comment
+from general.models import LetterToAdmin
 
-class CommentSerializer(serializers.ModelSerializer):
+class LetterToAdminSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Comment
+        model = LetterToAdmin
         fields = '__all__'
