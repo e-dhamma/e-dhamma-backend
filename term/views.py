@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from general.models import LetterToAdmin
-from .serializers import LetterToAdminSerializer
+from .models import Comment
+from .serializers import CommentSerializer
 from rest_framework.permissions import AllowAny
 
 
-class LetterToAdminViewSet(viewsets.ModelViewSet):
+class CommentViewSet(viewsets.ModelViewSet):
     permission_classes = () #Allows access to all requests including unauthenticated ones.
-    queryset = LetterToAdmin.objects.all()
-    serializer_class = LetterToAdminSerializer
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
