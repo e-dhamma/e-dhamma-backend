@@ -5,4 +5,5 @@ class LetterToAdmin (models.Model):
     email = models.EmailField()
     message = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
+    solved = models.BooleanField(default=False)
 
