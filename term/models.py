@@ -66,12 +66,15 @@ class Term(models.Model):
 class Comment(models.Model):
     term = models.ForeignKey(Term, on_delete=models.CASCADE)
     author = models.CharField(max_length=200)
-    timestamp = models.DateTimeField(auto_now_add=True)
+    email = models.EmailField()
     content = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
 
 
 class TranslatorsChat(models.Model):
     term = models.ForeignKey(Term, on_delete=models.CASCADE)
     author = models.CharField(max_length=200)
-    timestamp = models.DateTimeField(auto_now_add=True)
+    email = models.EmailField()
     content = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
