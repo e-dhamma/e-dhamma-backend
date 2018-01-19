@@ -15,19 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from general.urls import router
-
-urlpatterns = [
-    path('', include(router.urls)),
-    path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls'))
-]
-
-# Router urls
 from rest_framework import routers
+
 from general.views import LetterToAdminViewSet
 from term.views import CommentViewSet
 
 router = routers.DefaultRouter()
+
 router.register('letter-to-admin', LetterToAdminViewSet)
 router.register('term-comment', CommentViewSet)
+
+urlpatterns = [
+    path('api/', include(router.urls)),
+    path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls'))
+]
