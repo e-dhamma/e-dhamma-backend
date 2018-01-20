@@ -19,11 +19,14 @@ from rest_framework import routers
 
 from general.views import LetterToAdminViewSet
 from term.views import CommentViewSet
+from term.views import TranslatorsChatViewSet
 
 router = routers.DefaultRouter()
 
 router.register('letter-to-admin', LetterToAdminViewSet)
 router.register('term-comment', CommentViewSet)
+router.register('translators-chat', TranslatorsChatViewSet)
+
 
 urlpatterns = [
     path('api/', include(router.urls)),
