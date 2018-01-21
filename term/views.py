@@ -1,11 +1,10 @@
 from django.shortcuts import render
 from rest_framework import viewsets
+from rest_framework import generics
 from rest_framework.permissions import AllowAny
 
-from .models import Comment
-from .models import TranslatorsChat
-from .serializers import CommentSerializer
-from .serializers import TranslatorsChatSerializer
+from .models import Comment, TranslatorsChat, Term
+from .serializers import CommentSerializer, TranslatorsChatSerializer, SingleTermSerializer
 
 
 class CommentViewSet(viewsets.ModelViewSet):
@@ -20,3 +19,8 @@ class TranslatorsChatViewSet(viewsets.ModelViewSet):
     permission_classes = ()
     queryset = TranslatorsChat.objects.all()
     serializer_class = TranslatorsChatSerializer
+
+
+class SingleTermViewSet(generics.RetrieveAPIView):
+    queryset = Term.objects.all()
+    serializer_class = SingleTermSerializer
