@@ -31,21 +31,27 @@ class Term(models.Model):
         max_length=1, choices=_Gender.CHOICES, blank=True)
     wordClass = models.CharField(
         max_length=1, choices=_WordClass.CHOICES, blank=True)
-    
+
     def __str__(self):
         return self.slug
+
 
 class Pali(models.Model):
     term = models.ForeignKey(Term, on_delete=models.CASCADE)
     pali = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.pali
+
+
 class _RootLang:
-    PL = 'pl'
-    SKR = 'skr'
+    PL = 'p'
+    SKR = 's'
     CHOICES = (
         (PL, 'paali'),
         (SKR, 'sanskrit'),
     )
+
 
 class Meaning(models.Model):
     term = models.ForeignKey(Term, on_delete=models.CASCADE)
@@ -61,16 +67,25 @@ class Est(models.Model):
     term = models.ForeignKey(Meaning, on_delete=models.CASCADE)
     est = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.est
+
 
 class Eng(models.Model):
     term = models.ForeignKey(Meaning, on_delete=models.CASCADE)
     eng = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.eng
 
 
 class Example(models.Model):
     term = models.ForeignKey(Meaning, on_delete=models.CASCADE)
     original = models.TextField()
     translation = models.TextField()
+
+    def __str__(self):
+        return self.original + ' -> ' + self.translation
 
 
 class Comment(models.Model):
@@ -80,6 +95,9 @@ class Comment(models.Model):
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.author + ': ' + self.content
+
 
 class TranslatorsChat(models.Model):
     term = models.ForeignKey(Term, on_delete=models.CASCADE)
@@ -87,3 +105,6 @@ class TranslatorsChat(models.Model):
     email = models.EmailField()
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.author + ': ' + self.content
