@@ -31,36 +31,46 @@ class Term(models.Model):
         max_length=1, choices=_Gender.CHOICES, blank=True)
     wordClass = models.CharField(
         max_length=1, choices=_WordClass.CHOICES, blank=True)
+    
+    def __str__(self):
+        return self.slug
+
+class Pali(models.Model):
+    term = models.ForeignKey(Term, on_delete=models.CASCADE)
+    pali = models.CharField(max_length=100)
+
+class _RootLang:
+    PL = 'pl'
+    SKR = 'skr'
+    CHOICES = (
+        (PL, 'paali'),
+        (SKR, 'sanskrit'),
+    )
+
+class Meaning(models.Model):
+    term = models.ForeignKey(Term, on_delete=models.CASCADE)
+    root = models.CharField(max_length=100, blank=True)
+    rootLang = models.CharField(
+        max_length=1, choices=_RootLang.CHOICES, blank=True)
+    rootDescription = models.CharField(max_length=100, blank=True)
+    expl = models.TextField(blank=True)
+    further = models.TextField(blank=True)
 
 
-# class Pali(models.Model):
-#     term = models.ForeignKey(Term)
-#     pali = models.CharField(max_length=100)
+class Est(models.Model):
+    term = models.ForeignKey(Meaning, on_delete=models.CASCADE)
+    est = models.CharField(max_length=100)
 
 
-# class Meaning(models.Model):
-#     term = models.ForeignKey(Term)
-#     root = models.CharField(max_length=100)
-#     rootLang =
-#     rootDescription = models.CharField(max_length=100)
-#     expl =
-#     further =
+class Eng(models.Model):
+    term = models.ForeignKey(Meaning, on_delete=models.CASCADE)
+    eng = models.CharField(max_length=100)
 
 
-# class Est(models.Model):
-#     term = models.ForeignKey(Meaning)
-#     est =
-
-
-# class Eng(models.Model):
-#     term = models.ForeignKey(Meaning)
-#     eng =
-
-
-# class Example(models.Model):
-#     term = models.ForeignKey(Meaning)
-#     original =
-#     translation =
+class Example(models.Model):
+    term = models.ForeignKey(Meaning, on_delete=models.CASCADE)
+    original = models.TextField()
+    translation = models.TextField()
 
 
 class Comment(models.Model):
@@ -69,7 +79,6 @@ class Comment(models.Model):
     email = models.EmailField()
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
-
 
 
 class TranslatorsChat(models.Model):
