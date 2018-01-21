@@ -15,6 +15,8 @@ class TranslatorsChatSerializer(serializers.ModelSerializer):
 
 
 class SingleTermSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = Term
-        fields = '__all__'
+        fields = ('id', 'slug', 'pali_set', 'meaning_set', 'comment_set')
+        depth = 2
