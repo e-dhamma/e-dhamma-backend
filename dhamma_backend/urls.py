@@ -18,14 +18,14 @@ from django.urls import path, include
 from rest_framework import routers
 
 from general.views import LetterToAdminViewSet
-from term.views import CommentViewSet, TranslatorsChatViewSet, SingleTermViewSet
+from term.views import CommentViewSet, TranslatorsChatViewSet, SingleTermViewSet, TermListViewSet
 
 router = routers.DefaultRouter()
 
 router.register('letter-to-admin', LetterToAdminViewSet)
 router.register('term-comment', CommentViewSet)
-router.register('translators-chat', TranslatorsChatViewSet)
-# router.register('single-term/(?P<pk>[\d]+', SingleTermViewSet.as_view())
+router.register('term-list', TermListViewSet)
+# router.register('translators-chat', TranslatorsChatViewSet)
 
 
 urlpatterns = [
