@@ -5,15 +5,18 @@ from .models import Term, Pali, Meaning, Est, Eng, Example, Comment, Translators
 
 class PaliAdmin(admin.TabularInline):
     model = Pali
+    inlines = ()
     extra = 1
 class ExampleAdmin(NestedStackedInline):
     model = Example
+    inlines = ()
     extra = 1
 class EngAdmin(NestedStackedInline):
     model = Eng
     extra = 1
 class EstAdmin(NestedStackedInline):
     model = Est
+    inlines = ()
     extra = 1
 
 class MeaningAdmin(NestedStackedInline):
@@ -22,11 +25,13 @@ class MeaningAdmin(NestedStackedInline):
     inlines = (EstAdmin, EngAdmin, ExampleAdmin)
 class CommentAdmin(admin.TabularInline):
     model = Comment
+    inlines = ()
     extra = 1
 
 
 class TranslatorsChatAdmin(admin.TabularInline):
     model = TranslatorsChat
+    inlines = ()
     extra = 1
 
 
