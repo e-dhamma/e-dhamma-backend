@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Comment, TranslatorsChat, Term, Pali
+from .models import Comment, Term, Pali, Meaning
 
 
 class CommentSerializer(serializers.ModelSerializer):
@@ -8,16 +8,24 @@ class CommentSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class TranslatorsChatSerializer(serializers.ModelSerializer):
+# class TranslatorsChatSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = TranslatorsChat
+#         fields = '__all__'
+
+
+class MeaningSerializer(serializers.ModelSerializer):
     class Meta:
-        model = TranslatorsChat
-        fields = '__all__'
+        model = Meaning
+        fields =  ('id', 'term', 'root', 'rootLang', 'rootDescription', 'expl', 'further', 'est_set', 'eng_set', 'example_set')
+        depth = 1
 
 
 class SingleTermSerializer(serializers.ModelSerializer):
+    meaning_set = MeaningSerializer(many=True)
     class Meta:
         model = Term
-        fields = ('id', 'slug', 'pali_set', 'meaning_set', 'comment_set')
+        fields =  ('id', 'slug', 'pali_set', 'meaning_set', 'comment_set')
         depth = 2
 
 class PaliSerializer(serializers.ModelSerializer):
@@ -32,11 +40,14 @@ class TermListSerializer(serializers.ModelSerializer):
         fields = ('id', 'slug', 'pali_set')
         # depth = 1
 
-        """ [
+        """
+        Right now the seralizer returns data in wrong format, the correct format should be the following:
+        [
             {
-            id = 1
-            slug = ''
-            pali = []
-            est = []
+            'id' = 1
+            'slug' = 'string'
+            'pali' = []
+            'est' = []
             }
-        ]"""
+        ]
+        """
