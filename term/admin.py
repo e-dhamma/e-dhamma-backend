@@ -3,26 +3,36 @@ from nested_inline.admin import NestedStackedInline, NestedModelAdmin
 
 from .models import Term, Pali, Meaning, Est, Eng, Example, Comment, TranslatorsChat
 
+
 class PaliAdmin(admin.TabularInline):
     model = Pali
     inlines = ()
     extra = 1
+
+
 class ExampleAdmin(NestedStackedInline):
     model = Example
     inlines = ()
     extra = 1
+
+
 class EngAdmin(NestedStackedInline):
     model = Eng
     extra = 1
+
+
 class EstAdmin(NestedStackedInline):
     model = Est
     inlines = ()
     extra = 1
 
+
 class MeaningAdmin(NestedStackedInline):
     model = Meaning
     extra = 1
     inlines = (EstAdmin, EngAdmin, ExampleAdmin)
+
+
 class CommentAdmin(admin.TabularInline):
     model = Comment
     inlines = ()
