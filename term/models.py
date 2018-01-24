@@ -26,6 +26,7 @@ class _WordClass:
 
 
 class Term(models.Model):
+
     slug = models.SlugField()
     gender = models.CharField(
         max_length=1, choices=_Gender.CHOICES, blank=True)
@@ -99,12 +100,12 @@ class Comment(models.Model):
         return self.author + ': ' + self.content
 
 
-class TranslatorsChat(models.Model):
-    term = models.ForeignKey(Term, on_delete=models.CASCADE)
-    author = models.CharField(max_length=200)
-    email = models.EmailField()
-    content = models.TextField()
-    timestamp = models.DateTimeField(auto_now_add=True)
+# class TranslatorsChat(models.Model):
+#     term = models.ForeignKey(Term, on_delete=models.CASCADE)
+#     author = models.CharField(max_length=200)
+#     email = models.EmailField()
+#     content = models.TextField()
+#     timestamp = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return self.author + ': ' + self.content
+#     def __str__(self):
+#         return self.author + ': ' + self.content

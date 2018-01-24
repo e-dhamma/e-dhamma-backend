@@ -1,7 +1,7 @@
 from django.contrib import admin
 from nested_inline.admin import NestedStackedInline, NestedModelAdmin
 
-from .models import Term, Pali, Meaning, Est, Eng, Example, Comment, TranslatorsChat
+from .models import Term, Pali, Meaning, Est, Eng, Example, Comment
 
 
 class PaliAdmin(admin.TabularInline):
@@ -39,16 +39,16 @@ class CommentAdmin(admin.TabularInline):
     extra = 1
 
 
-class TranslatorsChatAdmin(admin.TabularInline):
-    model = TranslatorsChat
-    inlines = ()
-    extra = 1
+# class TranslatorsChatAdmin(admin.TabularInline):
+#     model = TranslatorsChat
+#     inlines = ()
+#     extra = 1
 
 
 class TermAdmin(NestedModelAdmin):
     save_on_top = True
     search_fields = ('id',)
-    inlines = (PaliAdmin, MeaningAdmin, CommentAdmin, TranslatorsChatAdmin)
+    inlines = (PaliAdmin, MeaningAdmin, CommentAdmin)
 
 
 admin.site.register(Term, TermAdmin)

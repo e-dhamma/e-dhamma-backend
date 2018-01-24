@@ -3,8 +3,8 @@ from rest_framework import viewsets
 from rest_framework import generics
 from rest_framework.permissions import AllowAny
 
-from .models import Comment, TranslatorsChat, Term
-from .serializers import CommentSerializer, TranslatorsChatSerializer, SingleTermSerializer, TermListSerializer
+from .models import Comment, Term
+from .serializers import CommentSerializer, SingleTermSerializer, TermListSerializer
 
 
 class CommentViewSet(viewsets.ModelViewSet):
@@ -14,11 +14,11 @@ class CommentViewSet(viewsets.ModelViewSet):
     serializer_class = CommentSerializer
 
 
-class TranslatorsChatViewSet(viewsets.ModelViewSet):
-    # Allows access to all requests including unauthenticated ones.
-    permission_classes = ()
-    queryset = TranslatorsChat.objects.all()
-    serializer_class = TranslatorsChatSerializer
+# class TranslatorsChatViewSet(viewsets.ModelViewSet):
+#     # Allows access to all requests including unauthenticated ones.
+#     permission_classes = ()
+#     queryset = TranslatorsChat.objects.all()
+#     serializer_class = TranslatorsChatSerializer
 
 
 class SingleTermViewSet(generics.RetrieveAPIView):

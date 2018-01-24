@@ -18,7 +18,7 @@ from django.urls import path, include
 from rest_framework import routers
 
 from general.views import LetterToAdminViewSet
-from term.views import CommentViewSet, TranslatorsChatViewSet, SingleTermViewSet, TermListViewSet
+from term.views import CommentViewSet, SingleTermViewSet, TermListViewSet
 
 router = routers.DefaultRouter()
 
