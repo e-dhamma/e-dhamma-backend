@@ -26,7 +26,7 @@ class _WordClass:
 
 
 class Term(models.Model):
-
+    pali = models.CharField(max_length=250)
     slug = models.SlugField()
     gender = models.CharField(
         max_length=1, choices=_Gender.CHOICES, blank=True)
@@ -35,14 +35,6 @@ class Term(models.Model):
 
     def __str__(self):
         return self.slug
-
-
-class Pali(models.Model):
-    term = models.ForeignKey(Term, on_delete=models.CASCADE)
-    pali = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.pali
 
 
 class _RootLang:
@@ -56,6 +48,8 @@ class _RootLang:
 
 class Meaning(models.Model):
     term = models.ForeignKey(Term, on_delete=models.CASCADE)
+    est = models.CharField(max_length=250)
+    eng = models.CharField(max_length=250)
     root = models.CharField(max_length=100, blank=True)
     rootLang = models.CharField(
         max_length=1, choices=_RootLang.CHOICES, blank=True)
@@ -64,24 +58,8 @@ class Meaning(models.Model):
     further = models.TextField(blank=True)
 
 
-class Est(models.Model):
-    term = models.ForeignKey(Meaning, on_delete=models.CASCADE)
-    est = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.est
-
-
-class Eng(models.Model):
-    term = models.ForeignKey(Meaning, on_delete=models.CASCADE)
-    eng = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.eng
-
-
 class Example(models.Model):
-    term = models.ForeignKey(Meaning, on_delete=models.CASCADE)
+    term_meaning = models.ForeignKey(Meaning, on_delete=models.CASCADE)
     original = models.TextField()
     translation = models.TextField()
 
