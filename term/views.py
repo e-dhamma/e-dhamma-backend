@@ -24,6 +24,8 @@ class CommentViewSet(viewsets.ModelViewSet):
 class SingleTermViewSet(generics.RetrieveAPIView):
     queryset = Term.objects.all()
     serializer_class = SingleTermSerializer
+    lookup_field = 'slug'
+
 
 class TermListViewSet(viewsets.ModelViewSet):
     # Allows access to all requests including unauthenticated ones.

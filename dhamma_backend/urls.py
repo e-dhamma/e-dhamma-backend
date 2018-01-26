@@ -30,7 +30,7 @@ router.register('term-list', TermListViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
-    path('api/single-term/<int:pk>/', SingleTermViewSet.as_view()),
+    path('api/single-term/<str:slug>/', SingleTermViewSet.as_view()),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls'))
 ]

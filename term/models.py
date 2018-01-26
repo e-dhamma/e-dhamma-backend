@@ -27,7 +27,7 @@ class _WordClass:
 
 class Term(models.Model):
     pali = models.CharField(max_length=250)
-    slug = models.SlugField()
+    slug = models.SlugField(unique=True)
     gender = models.CharField(
         max_length=1, choices=_Gender.CHOICES, blank=True)
     wordClass = models.CharField(

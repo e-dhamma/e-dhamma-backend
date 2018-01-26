@@ -4,7 +4,6 @@ from nested_inline.admin import NestedStackedInline, NestedModelAdmin
 from .models import Term, Meaning, Example, Comment
 
 
-
 class ExampleAdmin(NestedStackedInline):
     model = Example
     inlines = ()
