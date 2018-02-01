@@ -39,13 +39,11 @@ admin.site.register(Term, TermAdmin)
 
 # -----
 
-def accept_comment (modeladmin, request, queryset):
-    queryset.update(approved=True)
-accept_comment.short_description = "Avalikusta kommentaarid"
 
-class CommentOnlyAdmin(admin.ModelAdmin):
+class ApproveCommentAdmin(admin.ModelAdmin):
     save_on_top = True
     list_display = ('term', 'content', 'approved')
-    actions = [accept_comment]
+    list_editable = ('approved',)
 
-admin.site.register(Comment, CommentOnlyAdmin)
+
+admin.site.register(Comment, ApproveCommentAdmin)
