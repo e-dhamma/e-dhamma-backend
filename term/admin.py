@@ -32,6 +32,7 @@ class TermAdmin(NestedModelAdmin):
     save_on_top = True
     search_fields = ('id',)
     inlines = (MeaningAdmin, CommentAdmin)
+    list_display = ('pali',)
 
 
 admin.site.register(Term, TermAdmin)
