@@ -44,6 +44,7 @@ class ApproveCommentAdmin(admin.ModelAdmin):
     save_on_top = True
     list_display = ('term', 'content', 'approved')
     list_editable = ('approved',)
+    list_filter = ('approved', 'timestamp', 'author')
 
 
 admin.site.register(Comment, ApproveCommentAdmin)
