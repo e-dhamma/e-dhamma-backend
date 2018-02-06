@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
-from general.views import LetterToAdminViewSet
+from general.views import LetterToAdminViewSet, homepage
 from term.views import CommentViewSet, SingleTermViewSet, TermListViewSet
 
 router = routers.DefaultRouter()
@@ -29,6 +29,7 @@ router.register('term-list', TermListViewSet)
 
 
 urlpatterns = [
+    path('', homepage),
     path('api/', include(router.urls)),
     path('api/single-term/<str:slug>/', SingleTermViewSet.as_view()),
     path('admin/', admin.site.urls),
