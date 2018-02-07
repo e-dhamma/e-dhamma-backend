@@ -33,6 +33,7 @@ class TermAdmin(NestedModelAdmin):
     search_fields = ('id',)
     inlines = (MeaningAdmin, CommentAdmin)
     list_display = ('pali',)
+    prepopulated_fields = {'slug': ('pali',), }
 
 
 admin.site.register(Term, TermAdmin)
