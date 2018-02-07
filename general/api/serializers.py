@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import LetterToAdmin
+from ..models import LetterToAdmin
 
 class LetterToAdminSerializer(serializers.ModelSerializer):
     class Meta:

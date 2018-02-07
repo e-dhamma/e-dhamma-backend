@@ -17,8 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
-from general.views import LetterToAdminViewSet, homepage
-from term.views import CommentViewSet, SingleTermViewSet, TermListViewSet
+from general.api.views import LetterToAdminViewSet
+from general.views import homepage
+from term.api.views import CommentViewSet, SingleTermViewSet, TermListViewSet
 
 router = routers.DefaultRouter()
 
@@ -34,5 +35,5 @@ urlpatterns = [
     path('api/single-term/<str:slug>/', SingleTermViewSet.as_view()),
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('juhised/', include('guides.urls'))
+    path('juhendid/', include('guides.urls'))
 ]

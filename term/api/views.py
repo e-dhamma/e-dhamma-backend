@@ -3,7 +3,7 @@ from rest_framework import viewsets
 from rest_framework import generics
 from rest_framework.permissions import AllowAny
 
-from .models import Comment, Term
+from ..models import Comment, Term
 from .serializers import CommentSerializer, SingleTermSerializer, TermListSerializer
 
 

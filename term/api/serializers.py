@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Term, Meaning, Comment, Example
+from ..models import Term, Meaning, Comment, Example
 
 
 class CommentSerializer(serializers.ModelSerializer):
