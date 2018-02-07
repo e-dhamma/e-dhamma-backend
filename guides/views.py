@@ -1,3 +1,7 @@
 from django.shortcuts import render
+from .models import Guide
 
-# Create your views here.
+def guide(request, header):
+    guide = Guide.objects.filter(header=header)
+    return render(request, 'guides/guide.html', {'guide': guide})
+

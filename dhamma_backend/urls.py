@@ -30,8 +30,9 @@ router.register('term-list', TermListViewSet)
 
 urlpatterns = [
     path('', homepage),
-    path('api/', include(router.urls)),
+    path('api/', include(router.urls)), # in other include functions argument is a string. What is wrong?
     path('api/single-term/<str:slug>/', SingleTermViewSet.as_view()),
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls'))
+    path('api-auth/', include('rest_framework.urls')),
+    path('juhised/', include('guides.urls'))
 ]
