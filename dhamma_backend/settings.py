@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # Personal
     'general',
     'term',
+    'guides',
 ]
 
 MIDDLEWARE = [
