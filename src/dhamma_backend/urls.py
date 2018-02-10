@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
-from general.api.views import LetterToAdminViewSet
+from general.api.views import LetterToAdminViewSet, UserViewSet
 from general.views import homepage
 from term.api.views import CommentViewSet, SingleTermViewSet, TermListViewSet
 
@@ -33,7 +33,8 @@ urlpatterns = [
     path('', homepage),
     path('api/', include(router.urls)),
     path('api/single-term/<str:slug>/', SingleTermViewSet.as_view()),
-    path('admin/', admin.site.urls),
+    path('api/users/<str:username>', UserViewSet.as_view()),
+    path('haldus/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('juhendid/', include('guides.urls'))
 ]
