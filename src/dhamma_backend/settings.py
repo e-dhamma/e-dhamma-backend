@@ -25,7 +25,7 @@ SECRET_KEY = '$22l151x(k!+&2uzffaz=7myg%@eb#axuo@4fppmqsv4*&k_x('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['edhamma.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
