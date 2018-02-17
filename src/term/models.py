@@ -73,7 +73,7 @@ class Comment(models.Model):
     email = models.EmailField()
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
-    approved = models.BooleanField(default=False)
+    approved = models.BooleanField(default=True)
 
     def __str__(self):
         return self.author + ': ' + self.content
