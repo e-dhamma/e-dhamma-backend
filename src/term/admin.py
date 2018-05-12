@@ -18,14 +18,9 @@ class MeaningAdmin(NestedStackedInline):
 
 class CommentAdmin(admin.TabularInline):
     model = Comment
-    inlines = ()
-    extra = 1
-
-
-# class TranslatorsChatAdmin(admin.TabularInline):
-#     model = TranslatorsChat
-#     inlines = ()
-#     extra = 1
+    extra = 0
+    readonly_fields = ['author', 'email', 'content']
+    exclude = ['approved']
 
 
 class TermAdmin(NestedModelAdmin):
