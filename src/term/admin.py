@@ -2,6 +2,7 @@ from django.contrib import admin
 from nested_inline.admin import NestedStackedInline, NestedModelAdmin
 
 from .models import Term, Meaning, Example, Comment
+admin.site.site_header = 'E-dhamma'
 
 
 class ExampleAdmin(NestedStackedInline):
