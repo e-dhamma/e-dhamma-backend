@@ -37,7 +37,7 @@ class SingleTermSerializer(serializers.ModelSerializer):
     class Meta:
         model = Term
         fields = ('id', 'slug', 'pali', 'wordClass',
-                  'gender', 'meaning_set', 'comment_set')
+                  'gender', 'def_in_PLS_dict', 'meaning_set', 'comment_set')
         depth = 1
 
 

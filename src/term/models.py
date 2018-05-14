@@ -32,6 +32,7 @@ class Term(models.Model):
         max_length=1, choices=_Gender.CHOICES, blank=True)
     wordClass = models.CharField(
         max_length=1, choices=_WordClass.CHOICES, blank=True)
+    def_in_PLS_dict = models.TextField(blank=True)
 
     def __str__(self):
         return self.slug
