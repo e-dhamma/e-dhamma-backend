@@ -49,7 +49,7 @@ class _RootLang:
 class Meaning(models.Model):
     term = models.ForeignKey(Term, on_delete=models.CASCADE)
     est = models.CharField(max_length=250)
-    eng = models.CharField(max_length=250)
+    eng = models.CharField(max_length=250, blank=True)
     root = models.CharField(max_length=100, blank=True)
     rootLang = models.CharField(
         max_length=1, choices=_RootLang.CHOICES, blank=True)
