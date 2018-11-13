@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import platform
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -40,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Third party
     'rest_framework',
-    'nested_inline', # see https://github.com/s-block/django-nested-inline
+    'nested_inline',  # see https://github.com/s-block/django-nested-inline
     # Personal
     'general',
     'term',
@@ -134,3 +135,10 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+# Override settings in live environment
+
+LIVE_HOSTNAME = 'glenn-liveweb5'
+
+if platform.node() == LIVE_HOSTNAME:
+    from .settings_live import *
