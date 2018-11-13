@@ -1,0 +1,7 @@
+#: .\term\models.py:39
+msgid "term"
+msgstr "termin"
+
+#: .\term\models.py:40
+msgid "terms"
+msgstr "terminid"

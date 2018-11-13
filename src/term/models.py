@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 
 class _Gender:
@@ -33,6 +34,10 @@ class Term(models.Model):
     wordClass = models.CharField(
         max_length=1, choices=_WordClass.CHOICES, blank=True)
     def_in_PLS_dict = models.TextField(blank=True)
+
+    class Meta:
+        verbose_name = _('term')
+        verbose_name_plural = _('terms')
 
     def __str__(self):
         return self.slug
