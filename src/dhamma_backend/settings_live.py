@@ -7,4 +7,4 @@ TEMPLATE_DEBUG = DEBUG
 # when debug mode is disabled
 DEFAULT_LOGGING['handlers']['console']['filters'] = []
 
-ALLOWED_HOSTS = ['edhamma.pythonanywhere.com/','217.146.67.80']
+ALLOWED_HOSTS = ['edhamma.pythonanywhere.com','217.146.67.80']
