@@ -12,7 +12,6 @@ class LetterToAdminAdmin(admin.ModelAdmin):
 
 
 admin.site.register(LetterToAdmin, LetterToAdminAdmin)
-admin.site.site_header = 'E-dhamma'
 
 
 @admin.register(LogEntry)

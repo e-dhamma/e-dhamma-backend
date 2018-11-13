@@ -38,3 +38,8 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('juhendid/', include('guides.urls'))
 ]
+
+# Change branding
+admin.site.site_header = 'E-dhamma'
+admin.site.site_title = 'E-dhamma'
+admin.site.index_title = 'Tere tulemast!'
