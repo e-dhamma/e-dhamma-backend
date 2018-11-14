@@ -6,6 +6,6 @@ DEPLOY_COMMANDS = [
     # ('send validation report to admins', 'python manage.py validationreport --sendmail'),
     # ('update dashboard', 'cd dashboard/vue-frontend-src && npm ci && npm run build'),
     ('update static files', 'python manage.py collectstatic --noinput'),
-    ('restart app', 'touch wholesaler/wsgi.py'),
+    ('restart app', 'touch dhamma_backend/wsgi.py'),
 ]
 
