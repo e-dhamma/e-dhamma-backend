@@ -63,12 +63,12 @@ module.exports = {
 
   build: {
     // Template for index.html
-    index: path.resolve(__dirname, '../../dhamma_backend/static/index.html'),
+    index: path.resolve(__dirname, '../../static/index.html'),
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../../dhamma_backend'),
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsRoot: path.resolve(__dirname, '../../static'),
+    assetsSubDirectory: 'frontend',
+    assetsPublicPath: 'static/',
 
     /**
      * Source Maps
