@@ -60,9 +60,10 @@ def run_command(command):
     if error:
         result.append('Error: ')
         result.append('\t' + error.decode('utf-8'))
+    result = '\n'.join(result)
     if cmd.returncode:
-        raise RuntimeError(f"Command '{command}' failed with returncode {cmd.returncode}")
-    return '\n'.join(result)
+        raise RuntimeError(f"Command '{command}' failed with returncode {cmd.returncode}: {result}")
+    return result
 
 
 def activate_virtualenv(command):
