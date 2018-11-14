@@ -36,7 +36,9 @@ urlpatterns = [
     path('api/users/<str:username>', UserViewSet.as_view()),
     path('haldus/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path('juhendid/', include('guides.urls'))
+    path('juhendid/', include('guides.urls')),
+    path('deploy/', include('general.deploy.urls')),
+
 ]
 
 # Change branding

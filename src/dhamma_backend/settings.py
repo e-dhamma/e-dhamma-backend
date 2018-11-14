@@ -136,6 +136,9 @@ REST_FRAMEWORK = {
     ]
 }
 
+# DEPLOY_KEY should be an UUID
+DEPLOY_KEY = 'cf961d0c-7394-4421-8cac-62b19bcf5471'
+
 # Override settings in live environment
 
 LIVE_HOSTNAME = 'glenn-liveweb5'
