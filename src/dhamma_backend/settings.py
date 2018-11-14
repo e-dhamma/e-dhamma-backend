@@ -128,6 +128,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Absolute path to the directory static files should be collected to
+STATIC_ROOT = os.path.join(BASE_DIR, '..', 'static')
+
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
