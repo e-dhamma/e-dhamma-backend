@@ -20,6 +20,9 @@
       <!-- Search -->
       <template v-if="!isHomepage">
         <v-text-field label="Otsi" v-model="searchInput" @keyup.enter.native="searchTerm"></v-text-field>
+        <!-- <v-autocomplete
+          :items="[1, 2]">
+        </v-autocomplete> -->
         <v-btn icon @click="searchTerm" color="primary"><v-icon>search</v-icon></v-btn>
       </template>
       <v-spacer></v-spacer>

@@ -3,12 +3,12 @@
     <!-- Loading -->
     <v-container v-if="loading">
       <v-layout>
-          <v-flex class="text-xs-center">
+          <v-flex class="text-xs-center mt-5">
             <v-progress-circular
               :size="70"
               color="primary"
               indeterminate
-              width="6"
+              width=6
             ></v-progress-circular>
           </v-flex>
       </v-layout>
@@ -18,7 +18,6 @@
       <!-- term metadata -->
       <v-layout>
           <v-flex>
-              <h4 v-if="loading">Loading...</h4>
               <h1><i>{{ term.pali }}</i></h1>
               <p><template v-if="term.wordClass || term.gender">({{ term.wordClass }}, {{ term.gender }}) </template><!--<i>hääldus</i> <v-icon>play_arrow</v-icon>--></p>
           </v-flex>

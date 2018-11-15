@@ -4,7 +4,7 @@
     v-model="drawer"
     fixed
     app
-    width="200"
+    width=200
     class="brown lighten-5"
   >
     <v-list>
