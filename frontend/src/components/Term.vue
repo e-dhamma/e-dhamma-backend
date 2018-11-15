@@ -1,8 +1,24 @@
 <template>
-    <v-container>
+  <div>
+    <!-- Loading -->
+    <v-container v-if="loading">
+      <v-layout>
+          <v-flex class="text-xs-center">
+            <v-progress-circular
+              :size="70"
+              color="primary"
+              indeterminate
+              width="6"
+            ></v-progress-circular>
+          </v-flex>
+      </v-layout>
+    </v-container>
+
+    <v-container v-else>
       <!-- term metadata -->
       <v-layout>
           <v-flex>
+              <h4 v-if="loading">Loading...</h4>
               <h1><i>{{ term.pali }}</i></h1>
               <p><template v-if="term.wordClass || term.gender">({{ term.wordClass }}, {{ term.gender }}) </template><!--<i>hääldus</i> <v-icon>play_arrow</v-icon>--></p>
           </v-flex>
@@ -61,6 +77,7 @@
       <hr>
       <comment-form :termID="term.id" @commentAdded="showComment($event)"></comment-form>
     </v-container>
+  </div>
 </template>
 
 <script>
@@ -69,7 +86,11 @@ import { API } from '../api'
 import CommentForm from './CommentForm'
 export default {
   created () {
-    API.getTerm(this.slug).then(response => { this.term = response.data })
+    this.loading = true
+    API.getTerm(this.slug).then(response => {
+      this.term = response.data
+      this.loading = false
+    })
   },
   props: ['slug'],
   mounted () {
@@ -77,7 +98,8 @@ export default {
   },
   data () {
     return {
-      term: { comment_set: [] }
+      term: { comment_set: [] },
+      loading: false
     }
   },
   components: {
