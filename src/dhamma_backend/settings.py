@@ -128,6 +128,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+BACKUP_DIR = os.path.join(BASE_DIR, '..', 'db-backups')
+
 # Absolute path to the directory static files should be collected to
 STATIC_ROOT = os.path.join(BASE_DIR, '..', 'static')
 

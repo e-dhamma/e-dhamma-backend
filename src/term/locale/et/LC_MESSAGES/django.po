@@ -20,15 +20,15 @@ msgstr ""
 
 #: .\models.py:32
 msgid "gender"
-msgstr ""
+msgstr "sugu"
 
 #: .\models.py:35
 msgid "word class"
-msgstr ""
+msgstr "sõna liik"
 
 #: .\models.py:36
 msgid "definition in PLS dictionary"
-msgstr ""
+msgstr "definitsioon PLSi sõnaraamatus"
 
 #: .\models.py:39 .\models.py:56
 msgid "term"
@@ -36,63 +36,63 @@ msgstr "termin"
 
 #: .\models.py:40
 msgid "terms"
-msgstr ""
+msgstr "terminid"
 
 #: .\models.py:57
 msgid "in Estonian"
-msgstr ""
+msgstr "eesti keeles"
 
 #: .\models.py:58
 msgid "in English"
-msgstr ""
+msgstr "inglise keeles"
 
 #: .\models.py:59
 msgid "root"
-msgstr ""
+msgstr "sõna tüvi"
 
 #: .\models.py:61
 msgid "root language"
-msgstr ""
+msgstr "sõna tüve keel"
 
 #: .\models.py:62
 msgid "root description"
-msgstr ""
+msgstr "sõna tüve selgitus"
 
 #: .\models.py:63
 msgid "explanation"
-msgstr ""
+msgstr "selgitus"
 
 #: .\models.py:64
 msgid "further explanation"
-msgstr ""
+msgstr "täpsem selgitus"
 
 #: .\models.py:67
 msgid "meaning"
-msgstr ""
+msgstr "tähendus"
 
 #: .\models.py:68
 msgid "meanings"
-msgstr ""
+msgstr "tähendused"
 
 #: .\models.py:74
 msgid "original"
-msgstr ""
+msgstr "originaal"
 
 #: .\models.py:75
 msgid "translation"
-msgstr ""
+msgstr "tõlge"
 
 #: .\models.py:81
 msgid "example"
-msgstr ""
+msgstr "näide"
 
 #: .\models.py:82
 msgid "examples"
-msgstr ""
+msgstr "näited"
 
 #: .\models.py:88
 msgid "author"
-msgstr ""
+msgstr "autor"
 
 #: .\models.py:89
 msgid "email"
@@ -100,20 +100,20 @@ msgstr ""
 
 #: .\models.py:90
 msgid "content"
-msgstr ""
+msgstr "sisu"
 
 #: .\models.py:91
 msgid "timestamp"
-msgstr ""
+msgstr "ajatempel"
 
 #: .\models.py:92
 msgid "approved"
-msgstr ""
+msgstr "kinnitatud"
 
 #: .\models.py:98
 msgid "comment"
-msgstr ""
+msgstr "kommentaar"
 
 #: .\models.py:99
 msgid "comments"
-msgstr ""
+msgstr "kommentaarid"

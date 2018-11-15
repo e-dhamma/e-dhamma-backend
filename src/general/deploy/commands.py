@@ -1,5 +1,5 @@
 DEPLOY_COMMANDS = [
-    # ('add db backup', 'python manage.py dbbackup'),
+    ('add db backup', 'python manage.py dbbackup'),
     ('pull changes', '../scripts/fail-if-git-status-dirty.sh && git pull'),
     ('update dependencies', 'pip install --requirement=requirements.txt'),
     ('migrate database', 'python manage.py migrate'),
